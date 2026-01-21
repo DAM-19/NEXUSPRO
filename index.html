@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEON NEXUS | Competición Élite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --primary-glow: #06b6d4;
+        --primary-glow-rgb: 6, 182, 212;
+        --secondary-glow: #0891b2;
+      }
+      
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background-color: #020617;
+        color: #f8fafc;
+        overflow-x: hidden;
+        background-image: 
+          radial-gradient(circle at 50% 50%, rgba(var(--primary-glow-rgb), 0.05) 0%, transparent 50%),
+          linear-gradient(rgba(15, 23, 42, 0.5) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(15, 23, 42, 0.5) 1px, transparent 1px);
+        background-size: 100% 100%, 30px 30px, 30px 30px;
+      }
+
+      .font-space { font-family: 'Space Grotesk', sans-serif; }
+
+      /* Efecto Glassmorphism Refinado */
+      .glass {
+        background: rgba(15, 23, 42, 0.7);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+      }
+
+      .glass-card {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .glass-card:hover {
+        border-color: var(--primary-glow);
+        transform: translateY(-5px) scale(1.01);
+        box-shadow: 0 15px 40px -10px rgba(var(--primary-glow-rgb), 0.3);
+      }
+
+      /* Temas Dinámicos */
+      .dynamic-bg-cyan { --primary-glow: #06b6d4; --primary-glow-rgb: 6, 182, 212; }
+      .dynamic-bg-purple { --primary-glow: #a855f7; --primary-glow-rgb: 168, 85, 247; }
+      .dynamic-bg-emerald { --primary-glow: #10b981; --primary-glow-rgb: 16, 185, 129; }
+      .dynamic-bg-rose { --primary-glow: #f43f5e; --primary-glow-rgb: 244, 63, 94; }
+
+      .theme-accent { color: var(--primary-glow); }
+      .theme-bg-accent { background-color: var(--primary-glow); }
+      .theme-border-accent { border-color: var(--primary-glow); }
+      .neon-text {
+        text-shadow: 0 0 12px rgba(var(--primary-glow-rgb), 0.6);
+        color: var(--primary-glow);
+      }
+
+      /* Animaciones */
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
+      .animate-float { animation: float 4s ease-in-out infinite; }
+
+      @keyframes scan {
+        0% { top: -100%; }
+        100% { top: 200%; }
+      }
+      .scan-line::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--primary-glow), transparent);
+        animation: scan 3s linear infinite;
+        opacity: 0.3;
+      }
+
+      .btn-glow:hover {
+        box-shadow: 0 0 20px rgba(var(--primary-glow-rgb), 0.6);
+        filter: brightness(1.1);
+      }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: #020617; }
+      ::-webkit-scrollbar-thumb { 
+        background: #1e293b; 
+        border-radius: 10px;
+        border: 2px solid #020617;
+      }
+      ::-webkit-scrollbar-thumb:hover { background: var(--primary-glow); }
+
+      .transition-all-500 { transition: all 0.5s ease; }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@^19.2.3",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+        "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+        "recharts": "https://esm.sh/recharts@^3.6.0"
+      }
+    }
+    </script>
+  </head>
+  <body class="dynamic-bg-cyan transition-colors duration-500 min-h-screen">
+    <div id="root"></div>
+  </body>
+</html>
